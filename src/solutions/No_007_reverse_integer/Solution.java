@@ -40,5 +40,5 @@ public class Solution {
             return result == 2147483647 ? 0:-result;
         }
     }
-    
+
 }
