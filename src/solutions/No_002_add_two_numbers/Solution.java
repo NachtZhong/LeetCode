@@ -12,6 +12,7 @@ package solutions.No_002_add_two_numbers;
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * 解题思路:
  * 用普通的加法做, 超过10就进位+1
  */
 public class Solution {
