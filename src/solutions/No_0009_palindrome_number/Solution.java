@@ -1,4 +1,4 @@
-package solutions.No_009_palindrome_number;
+package solutions.No_0009_palindrome_number;
 
 /**
  * https://leetcode.com/problems/palindrome-number/

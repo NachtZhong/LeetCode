@@ -1,4 +1,4 @@
-package solutions.No_007_reverse_integer;
+package solutions.No_0007_reverse_integer;
 
 /**
  * https://leetcode.com/problems/reverse-integer/

@@ -1,4 +1,4 @@
-package solutions.No_002_add_two_numbers;
+package solutions.No_0002_add_two_numbers;
 
 /**
  * @author Nacht
