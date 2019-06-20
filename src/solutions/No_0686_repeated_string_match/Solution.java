@@ -20,25 +20,16 @@ package solutions.No_0686_repeated_string_match;
  */
 public class Solution {
     public int repeatedStringMatch(String A, String B) {
-        if(A.contains(B)){
-            return 1;
-        }
-        int i = 1;
-        int index = 0;
-        for(int tmp = 0 ; tmp < A.length() ; tmp++){
-            if(B.contains(A.substring(tmp))){
-                index = tmp;
+        String s = "";
+        int Acount = 0;
+        while(s.length()<B.length()+2*A.length()){
+            if(s.contains(B)){
+                return Acount;
             }
+            s = s + A;
+            Acount ++ ;
         }
-        if(index == 0){
-            return -1;
-        }
-        String duplicateA = A.substring(index);
-        while (duplicateA.length() <= B.length() && !duplicateA.equals(B)) {
-            duplicateA += A;
-            i++;
-        }
-        return duplicateA.indexOf(B) >= 0 ? i : -1;
+        return -1;
     }
 
     public static void main(String[] args) {
