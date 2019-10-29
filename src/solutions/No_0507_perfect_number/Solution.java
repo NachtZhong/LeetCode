@@ -1,4 +1,4 @@
-package solutions.No_507_perfect_number;
+package solutions.No_0507_perfect_number;
 
 /**
  * https://leetcode.com/problems/perfect-number/

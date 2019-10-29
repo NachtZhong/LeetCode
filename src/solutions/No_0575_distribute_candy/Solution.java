@@ -1,4 +1,4 @@
-package solutions.No_575_distribute_candy;
+package solutions.No_0575_distribute_candy;
 
 import java.util.HashSet;
 import java.util.Set;

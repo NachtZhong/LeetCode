@@ -1,4 +1,4 @@
-package solutions.No_412_fizz_buzz;
+package solutions.No_0412_fizz_buzz;
 
 import java.util.ArrayList;
 import java.util.List;
