@@ -1,6 +1,7 @@
 package solutions.No_0690_employee_importance;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 /**
