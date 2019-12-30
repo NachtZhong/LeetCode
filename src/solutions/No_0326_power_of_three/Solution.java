@@ -28,7 +28,7 @@ package solutions.No_0326_power_of_three;
  * Could you do it without using any loop / recursion?
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * 解题思路:
- * 如果为3的n次方, 一定能被int类型里面3的次方的最大值1162261467整除,这道题用log函数会出现精度丢失问题, 注意区分
+ * 如果为3的n次方, 一定能被int类型里面3的次方的最大值1162261467整除,这道题用loge函数会出现精度丢失问题, 注意区分(可用log10)
  */
 public class Solution {
     public boolean isPowerOfThree(int n) {
