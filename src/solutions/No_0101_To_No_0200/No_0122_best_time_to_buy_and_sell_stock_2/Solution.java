@@ -25,15 +25,14 @@ package solutions.No_0101_To_No_0200.No_0122_best_time_to_buy_and_sell_stock_2;
  * Explanation: In this case, no transaction is done, i.e. max profit = 0.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * 解题思路:
- * 从第一天开始向后索引, 如果后面一天比前一天大, 则将后一天的收益-前一天的收益累加到总收益中, 遍历完成后的总收益即为最大收益
+ * 题目: 数组代表每一天股票的价格, 求在这个价格基础下能获得的最大收益
+ * 贪心算法思想, 两天之间只要是从小到大的价格波动, 这个盈利都吃到, 最终得到的就是最大收益
  */
 public class Solution {
     public int maxProfit(int[] prices) {
         int result = 0 ;
-        for(int i = 1 ; i < prices.length ; i++){
-            if(prices[i] > prices[i-1]){
-                result += prices[i] - prices[i-1];
-            }
+        for(int i = 0; i < prices.length - 1; i++){
+            result += prices[i + 1] > prices[i] ? prices[i + 1] - prices[i] : 0;
         }
         return result;
     }

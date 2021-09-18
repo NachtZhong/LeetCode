@@ -1,5 +1,9 @@
 package solutions.No_1101_To_No_1200.No_1114_print_in_order;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * https://leetcode.com/problems/print-in-order/
  * @author Nacht
@@ -34,7 +38,6 @@ package solutions.No_1101_To_No_1200.No_1114_print_in_order;
 public class Solution {
     private class Foo {
         int current = 1;
-
         public Foo() {
 
         }

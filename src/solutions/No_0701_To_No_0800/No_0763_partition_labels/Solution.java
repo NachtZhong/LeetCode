@@ -34,28 +34,25 @@ import java.util.Map;
 public class Solution {
     public List<Integer> partitionLabels(String S) {
         List<Integer> resultList = new ArrayList<>();
-        Map<Character,Integer> boundMap = new HashMap<>();
-        for(char c : S.toCharArray()){
-            if(!boundMap.containsKey(c)) {
-                boundMap.put(c, S.lastIndexOf(c));
-            }
+        Map<Character, Integer> rightBoundMap = new HashMap<>();
+        /*记录每个字符的右边界*/
+        for(int i = 0; i < S.length(); i++){
+            rightBoundMap.put(S.charAt(i), i);
         }
-        int currentIndex = 0 ;
-        int lastRightBound = 0 ;
-        int currentRightBound = 1;
-        while(currentRightBound <= S.length()){
-            if(currentIndex == currentRightBound){
-                resultList.add(currentRightBound - lastRightBound);
-                lastRightBound = currentRightBound;
-                currentRightBound ++;
-                continue;
+        int begin = 0;
+        int end = 0;
+        for(int i = 0 ; i < S.length(); i++){
+            int charRightBound = rightBoundMap.get(S.charAt(i));
+            /*如果超过边界, 扩展边界*/
+            if(charRightBound > end){
+                end = charRightBound;
             }
-            char c = S.charAt(currentIndex);
-            int characterRightBound = boundMap.get(c);
-            if(characterRightBound + 1 > currentRightBound){
-                currentRightBound = characterRightBound + 1;
+            /*index成功走到边界, 截取一段并开始走下一段*/
+            if(i == end && charRightBound == end){
+                resultList.add(end - begin + 1);
+                begin = i + 1;
+                end = i + 1;
             }
-            currentIndex ++;
         }
         return resultList;
     }
