@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/merge-sorted-array/
- *
  * @author Nacht
  * Created on 2019/5/27
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -24,22 +23,25 @@ import java.util.Arrays;
  * Output: [1,2,2,3,5,6]
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * 解题思路:
- * 所有数放到一个数组, 然后排序不是美滋滋?
+ * 三个指针, 两个处理两个数组的数据, 一个处理插入位置, 插入时从nums1右边开始从大到小插入, 因为后面有足够的空间
  */
 public class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] nums = new int[m + n];
-        int currentIndex = 0;
-        for(int i = 0 ; i < m ; i++){
-            nums[currentIndex++] = nums1[i];
+        m--;
+        n--;
+        int pos = nums1.length - 1;
+        while(m >= 0 && n >= 0){
+            /*选大的数插入到nums1后面*/
+            if(nums1[m] > nums2[n]){
+                nums1[pos--] = nums1[m--];
+            }else{
+                nums1[pos--] = nums2[n--];
+            }
         }
-        for(int num : nums2){
-            nums[currentIndex++] = num;
-        }
-        Arrays.sort(nums);
-        currentIndex = 0 ;
-        for(int num : nums){
-            nums1[currentIndex++] = num;
+        /*如果m=0时, 第二个数组还有数据, 说明第一个数组处理完了, 由于第二个数组已经有序, 插入到剩下的位置就行*/
+        /*如果n=0时第一个数组还有数据没处理就不用管了, 因为他们本来就在nums1里面合适的位置*/
+        while (n >= 0){
+            nums1[pos--] = nums2[n--];
         }
     }
 }
