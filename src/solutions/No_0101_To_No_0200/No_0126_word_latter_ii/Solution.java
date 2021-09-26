@@ -33,11 +33,13 @@ import java.util.*;
  * 给一个开始词, 一个结束词, 开始词每次只能变换一个字母, 且变换过程中的每一个词都必须包含在词表中(包括结束词), 求开始词变换到结束词所有最短路径的变换过程
  * 解题思路:
  * 首先遍历一次做数据处理, 在遍历的过程中1.记录开始词和词表中下一步能走到的词的联系 2.记录词表中单词和下一步能走到的词的联系 3.记录结束词的位置
+ * 然后做广度遍历, 用树结构记录下广度遍历的节点(树节点只记录parent用于回溯路径), 当到某一层抵达endWord时回溯该层所有值为endWord的节点, 并停止bfs
  */
 public class Solution {
     public static void main(String[] args) {
         System.out.println(new Solution().findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log")));
     }
+
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         /*结束词在数组中的索引*/
         int endWordIndex = -1;
@@ -127,7 +129,7 @@ public class Solution {
     /**
      * 用来记录广度搜索过程中的树节点, 每个节点只需要记录自己的parent即可, 等到遍历到endWord的时候, 就根据当前节点的parent逆序遍历回去, 得到完整的path
      */
-    private class PathTreeNode{
+    private static class PathTreeNode{
         int index;
         PathTreeNode parent;
         PathTreeNode(int index){
@@ -139,7 +141,7 @@ public class Solution {
         }
 
         /**
-         * 获取root节点到
+         * 获取startWord到当前word的路径
          * @param wordList
          * @return
          */
